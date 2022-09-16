@@ -1,0 +1,32 @@
+@import '../../constants/variable.scss';
+
+.dashboard {
+  display: flex;
+  // &[data-theme='dark'] {
+  //   .dashboard__right,
+  //   .dashboard__left {
+  //     background-color: $dark-background;
+  //   }
+
+  //   * {
+  //     color: $light-color;
+  //   }
+  // }
+
+  // &[data-theme='light'] {
+  //   .dashboard__right,
+  //   .dashboard__left {
+  //     background-color: $light-background;
+  //   }
+
+  //   * {
+  //     color: $dark-color;
+  //   }
+  // }
+
+  &__right {
+    flex-grow: 1;
+    background-color: rgb(249 250 251);
+    min-height: 100vh;
+  }
+}
