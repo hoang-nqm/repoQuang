@@ -153,7 +153,7 @@ function Login() {
             <div className="login__form__social">
               <GoogleLogin
               className="google"
-                clientId="AIzaSyDgehYhiFplt0KzuyxiuVbdRXsndPl6vMk"
+                clientId="2176881241-g7eej08jui1uv8qr9g94m0b1h8adhpsa.apps.googleusercontent.com"
                 buttonText="Sign in with Google account"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
