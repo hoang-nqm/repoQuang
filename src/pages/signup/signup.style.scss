@@ -1,0 +1,95 @@
+.my-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .left {
+    width: 25%;
+    height: 1080px;
+    left: 0px;
+    top: 0px;
+    background: #b8c2d1;
+    h3 {
+      position: absolute;
+      width: 224px;
+      height: 53px;
+      left: 137px;
+      top: 61px;
+
+      font-family: "Noto Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 148.2%;
+      /* or 53px */
+
+      letter-spacing: 0.155em;
+
+      color: #1e1e1e;
+    }
+    .images {
+      img {
+        position: absolute;
+        width: 574px;
+        height: 806px;
+        left: -10px;
+        top: 200px;
+      }
+    }
+    .balls {
+      img {
+        position: absolute;
+        width: 187px;
+        height: 233.75px;
+        left: 494px;
+        top: 602px;
+      }
+    }
+    .esclipe {
+      position: relative;
+      width: 366px;
+      height: 366px;
+      left: -76px;
+      top: 806px;
+      border-radius: 50%;
+      background-color: rgba(13, 116, 117, 0.4);
+    }
+  }
+  .right {
+    background-color: #7aba74;
+    width: 75%;
+    height: 1080px;
+
+    right: 0px;
+    top: 0px;
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .item {
+        margin: 80px 120px 0px 120px;
+      }
+      h3 {
+        font-family: "Noto Sans";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 148.2%;
+        color: #ffffff;
+      }
+    }
+    .title {
+      margin-left: 330px;
+      h2 {
+        font-family: "Noto Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 71px;
+
+        color: #ffffff;
+      }
+    }
+  }
+}
