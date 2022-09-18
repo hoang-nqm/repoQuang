@@ -7,6 +7,8 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import GoogleLogin from "react-google-login";
+import { auth, ggProvider } from "../../Firebase/config";
+import { signInWithPopup } from "firebase/auth";
 
 function Login() {
   let [username, setUsername] = useState("");
@@ -28,9 +30,6 @@ function Login() {
     setChecked(event.target.checked);
   };
 
-  const responseGoogle = (response) => {
-    console.log(response);
-  };
   const BootstrapButton = styled(Button)({
     boxShadow: "none",
     textTransform: "none",
@@ -38,7 +37,7 @@ function Login() {
     padding: "6px 12px",
     width: "100%",
     border: "1px solid",
-    margin: '20px 0px 5px 42px !important' ,
+    margin: "20px 0px 5px 42px !important",
     lineHeight: 1.7,
     backgroundColor: "#53AA51",
     borderColor: "#7E7373",
@@ -68,47 +67,15 @@ function Login() {
       boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
     },
   });
-
-  const handleLoginGoogle = async () => {};
-
-  // return (
-  //   <div className="login">
-  //     <div className="login__form">
-  //       <h1>Sign In</h1>
-
-  //       <div className="login__form__input">
-  //         <div className="username">
-  //           <h4>Username</h4>
-  //           <input
-  //             type="text"
-  //             onChange={event => {
-  //               setUsername(event.target.value);
-  //             }}
-  //           />
-  //         </div>
-  //         <div className="password">
-  //           <h4>Password</h4>
-  //           <input
-  //             type="password"
-  //             onChange={event => {
-  //               setPassword(event.target.value);
-  //             }}
-  //           />
-  //         </div>
-  //       </div>
-
-  //       <div className="login__form__submit">
-  //         <button
-  //           onClick={event => {
-  //             login();
-  //           }}
-  //         >
-  //           <h4>Sign In</h4>
-  //         </button>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+   const [account,setAccount]=useState([]);
+  const handleLoginGoogle = async () => {
+    const user = await signInWithPopup(auth, ggProvider);
+    let userInfo = user.user;
+    const { displayName, email, photoURL, uid, providerData, accessToken } = userInfo;
+    console.log(photoURL);
+    console.log(userInfo);
+    setAccount(userInfo);
+  };
   return (
     <div className="login">
       <div className="login-form">
@@ -150,18 +117,27 @@ function Login() {
                 Sign in
               </BootstrapButton>
             </div>
-            <div className="login__form__social">
-              <GoogleLogin
-              className="google"
-                clientId="2176881241-g7eej08jui1uv8qr9g94m0b1h8adhpsa.apps.googleusercontent.com"
-                buttonText="Sign in with Google account"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_host_origin"}
-              />
-            </div>
           </div>
-          <h4>Don't have account? <a href="">Sign up</a></h4>
+          <div className="login__form__social">
+            <h1></h1>
+            <label
+              className="icon-google"
+              for="login-button"
+              onClick={() => {
+                handleLoginGoogle();
+              }}
+            >
+              <img
+                ref={button}
+                src="https://colorlib.com/etc/lf/Login_v5/images/icons/icon-google.png"
+                alt=""
+              />
+              <span>Sign in with @fpt.edu.vn</span>
+            </label>
+          </div>
+          <h4>
+            Don't have account? <a href="">Sign up</a>
+          </h4>
         </div>
         <div className="right-login">
           <div className="top-right"></div>
